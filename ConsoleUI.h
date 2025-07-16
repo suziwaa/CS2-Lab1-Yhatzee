@@ -2,16 +2,14 @@
 #define CONSOLE_UI_H
 
 #include <string>
-
 using namespace std;
 
 class ConsoleUI {
 public:
     void displayWelcome();
-    void displayDice(const string& diceValues);
+    void displayDice(const int diceValues[5]);
     string promptDiceToReroll();
-    int promptCategory(const string& usedCategories);
-    void displayScoreCard(const string& scores);
+    int promptCategory();
     void displayFinalScore(int score);
     bool askPlayAgain();
 };

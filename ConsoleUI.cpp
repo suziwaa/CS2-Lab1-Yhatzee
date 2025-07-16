@@ -1,49 +1,52 @@
 #include "ConsoleUI.h"
 #include <iostream>
 
-using namespace std;
-
 void ConsoleUI::displayWelcome() {
-    cout << "Welcome to Yahtzee!\n";
+    cout << "\nWelcome to Yahtzee!\n";
 }
 
-void ConsoleUI::displayDice(const string& diceValues) {
+void ConsoleUI::displayDice(const int diceValues[5]) {
     cout << "Your dice: ";
-    for (char ch : diceValues)
-        cout << ch << " ";
+    for (int i = 0; i < 5; ++i) {
+        cout << diceValues[i] << " ";
+    }
     cout << endl;
 }
 
 string ConsoleUI::promptDiceToReroll() {
-    cout << "Enter indices (0-4) of dice to reroll (e.g., 024 to reroll 0,2,4). Press enter to keep all: ";
+    cout << "Enter indices (0-4) to reroll";
     string input;
     cin >> input;
     return input;
 }
 
-int ConsoleUI::promptCategory(const string& usedCategories) {
+int ConsoleUI::promptCategory() {
     int choice;
     do {
-        cout << "Choose a scoring category (1–6): ";
+        cout << "Choose a number to score (1–6): ";
         cin >> choice;
-    } while (choice < 1 || choice > 6 || usedCategories[choice - 1] == '1');
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(10000, '\n');
+            choice = -1;
+        }
+    } while (choice < 1 || choice > 6);
     return choice;
 }
 
-void ConsoleUI::displayScoreCard(const string& scores) {
-    cout << "\nScorecard:\n";
-    for (size_t i = 0; i < scores.length(); ++i) {
-        cout << (i + 1) << ": " << (scores[i] - '0') << endl;
-    }
-}
 
 void ConsoleUI::displayFinalScore(int score) {
-    cout << "Final Score: " << score << endl;
+    cout << "\nFinal Score: " << score << endl;
 }
 
 bool ConsoleUI::askPlayAgain() {
-    char response;
     cout << "Play again? (y/n): ";
-    cin >> response;
-    return response == 'y' || response == 'Y';
+    char input;
+    cin >> input;
+    if (input == 'y' || input == 'Y') {
+        return true;
+    }
+    else {
+        return false;
+    }
 }

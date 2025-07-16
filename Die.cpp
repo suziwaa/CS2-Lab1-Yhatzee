@@ -1,13 +1,17 @@
 #include "Die.h"
 #include <cstdlib>
-#include <ctime> //Need both of these for srand to work properly
+#include <ctime>
 
 Die::Die(int sides) : numSides(sides), faceValue(1) {
-    std::srand(std::time(0));
+    static bool seeded = false;
+    if (!seeded) {
+        srand(time(0));
+        seeded = true;
+    }
 }
 
 void Die::roll() {
-    faceValue = (std::rand() % numSides) + 1; //Assigns the face value of the die based on what random number was generated
+    faceValue = (rand() % numSides) + 1;
 }
 
 int Die::getFaceValue() const {

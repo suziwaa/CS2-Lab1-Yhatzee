@@ -128,8 +128,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleUI.cpp" />
-    <ClCompile Include="CS2 Lab1 Yhatzee.cpp" />
+    <ClCompile Include="Yhatzee.cpp" />
     <ClCompile Include="Die.cpp" />
+    <ClCompile Include="GameLogic.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConsoleUI.h" />

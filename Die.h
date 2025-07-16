@@ -1,4 +1,3 @@
-//This class implements the behavior and data for a singular die.
 #ifndef DIE_H
 #define DIE_H
 
@@ -7,7 +6,7 @@ private:
     int numSides;
     int faceValue;
 public:
-    Die(int sides = 6); //Default constructor as yhatzee uses 6 sided die.
+    Die(int sides = 6);
     void roll();
     int getFaceValue() const;
 };

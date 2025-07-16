@@ -15,13 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CS2 Lab1 Yhatzee.cpp">
+    <ClCompile Include="Yhatzee.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Die.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ConsoleUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLogic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
